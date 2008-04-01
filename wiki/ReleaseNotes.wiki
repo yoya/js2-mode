@@ -1,6 +1,10 @@
 #labels Featured
 Release notes for new versions, in reverse-chronological order (most recent first)
 
+=Release notes for April 1 2008, js2-20080401a.el:=
+
+Defined a missing variable, `emacs22`, required for this mode to load.  Tested more carefully this time!
+
 =Release notes for April 1 2008, js2-20080401.el:=
 
   * fixed problem where indenting after line with /"/ regexp always indented to column 0.  It's still not perfect, but at least it invokes the bounce-indenter now.
