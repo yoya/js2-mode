@@ -1,5 +1,5 @@
 #labels Featured
-Release notes for new versions
+Release notes for new versions, in reverse-chronological order (most recent first)
 
 =Release notes for April 1 2008, js2-20080401.el:=
 
