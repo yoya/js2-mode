@@ -1,7 +1,7 @@
 #labels Featured
 Release notes for new versions
 
-=New for 20080401 release:=
+=Release notes for April 1 2008, js2-20080401.el:=
 
   * fixed problem where indenting after line with /"/ regexp always indented to column 0.  It's still not perfect, but at least it invokes the bounce-indenter now.
     
@@ -14,4 +14,21 @@ Release notes for new versions
   * added highlighting for simple html start/end tags in jsdoc
 
   * don't do single-quote-matching inside comments, since typing an apostrophe is the most common case.
+
+=Release notes for March 31 2008, js2-20080331.el:=
+
+  * fixed broken installation instructions
+
+  * added `js2-language-version` custom variable that defaults to 150, for JavaScript 1.5.  If you set it to 160, you get E4X support, and 170 adds let, yield, and array comprehensions.
     
+  * added new warning for missing semicolon (auto-insertion)
+     * configured via `js2-strict-missing-semi-warning`
+
+  * fixed default indentation for first line of an object literal being passed as the first parameter to a function: most people want this indented from previous line, not from the curly-brace.  Example:
+    
+{{{
+	foo.bar.baz({
+          a: 1     // most people want this line indented here
+}}}
+
+  * improved the heuristics for deciding whether to insert a close-paren or close-bracket when sitting on one.  It's still not very smart, but it's less annoying than it was.
