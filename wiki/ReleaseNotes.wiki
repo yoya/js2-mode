@@ -1,0 +1,17 @@
+#labels Featured
+Release notes for new versions
+
+=New for 20080401 release:=
+
+  * fixed problem where indenting after line with /"/ regexp always indented to column 0.  It's still not perfect, but at least it invokes the bounce-indenter now.
+    
+  * fixed hitting Enter after /** in already-terminated block comment.  It was trying to terminate the comment again. Now it will only insert the terminator if it's currently a parse error (it assumes the error is an unterminated comment.)
+    
+  * added yield into the keyword lists (was inadvertently omitted)
+
+  * per user request, made bounce-indent not record undo info
+
+  * added highlighting for simple html start/end tags in jsdoc
+
+  * don't do single-quote-matching inside comments, since typing an apostrophe is the most common case.
+    
