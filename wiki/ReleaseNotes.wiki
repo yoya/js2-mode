@@ -1,6 +1,16 @@
 #labels Featured
 Release notes for new versions, in reverse-chronological order (most recent first)
 
+=Release notes for April 2 2008, js2-20080402a.el:=
+
+  * fixed bug where missing-semicolon warning was being issued after you typed a semicolon
+
+  * when possible, ignore TAB key if it's the first time it's used on the current line and we're already indented to one of the computed alternatives.  This is configurable with (and the reasoning is documented in) the new custom variable `js2-mode-indent-ignore-first-tab'
+
+  * changed the behavior of Undo when indenting.  In a previous release, per a user request, I'd made it so that bounce-indent doesn't record Undo information.  I've changed it back to record Undo info whenever the indentation changes.  You can disable recording undo around indents with the new custom variable `js2-mode-indent-inhibit-undo'
+
+  * changed the default keybindings of js2-show/hide-element, js2-mode-show-all, and js2-mode-toggle-hide-functions/comments commands to be of the form C-c C-<letter>, instead of C-c <letter>, to be compliant with Emacs policy.  Thanks to jjfoe for the clarification.
+
 =Release notes for April 1 2008, js2-20080401a.el:=
 
 Defined a missing variable, `emacs22`, required for this mode to load.  Tested more carefully this time!
