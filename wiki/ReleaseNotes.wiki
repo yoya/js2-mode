@@ -1,6 +1,46 @@
 #labels Featured
 Release notes for new versions, in reverse-chronological order (most recent first)
 
+=Release notes for April 3 2008, js2-20080403.el:=
+
+Features:
+
+  * improved imenu support a bit:  it now parses inside object literals assigned to top-level variables, which catches a few dozen `prototype.js` functions.  Still need to handle foo.bar.baz = {...} situations.
+
+  * `js2-next-error` can now move forward or backward N errors with a numeric prefix arg
+
+  * new command, `js2-mark-defun` (analogous to `mark-defun`) for marking functions and other top-level forms.  Can be invoked repeatedly to extend the selection.
+
+  * new command, `js2-narrow-to-defun` for making text outside current function invisible.
+
+Bug fixes:
+
+  * eliminated annoying flashing when re-fontifying (don't clear old colors until last possible instant)
+
+  * fixed bug in inserting close-bracket (was inserting close-paren)
+
+  * reduced typing lag in big files by checking for user input more often while parsing
+
+  * `M-x rgrep` and other functions that use `find-tag-default` now find a much more reasonable tag candidate.
+
+  * removed an accidental runtime dependency on the CL package
+
+Usability/behavior changes:
+
+  * added asterisk to `js2-electric-keys` so typing it in a block comment will auto-indent the line.  For now, typing an asterisk auto-indents any line - will fix later.  If you hate it you can remove it from your `js2-electric-keys' list.
+
+  * made improvements to filling block comments, particularly if they're indented.  Still not perfect - need to write my own fill function eventually, since `c-fill-paragraph` is getting confused.  It works a little better in Emacs 22 than in 21.
+
+  * don't insert matched quotes (in mirror mode) if next char is non-whitespace.
+
+  * turned off `js2-mode-indent-ignore-first-tab` by default - the behavior still needs some fine-tuning
+
+  * mode no longer binds C-x ' as `js2-next-error`; it binds C-c C-' instead.  In Emacs 22+, you can use the `next-error` command as well.
+
+  * mode no longer binds C-c C-h (hide element), which interferes with showing a prefix keymap's bindings using C-h.
+
+  * `js2-node-at-point` is no longer interactive.
+
 =Release notes for April 2 2008, js2-20080402a.el:=
 
   * fixed bug where missing-semicolon warning was being issued after you typed a semicolon
