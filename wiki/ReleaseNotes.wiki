@@ -1,6 +1,51 @@
 #labels Featured
 Release notes for new versions, in reverse-chronological order (most recent first)
 
+=Release notes for April 6 2008, js2-20080406.el:=
+
+New features:
+
+  * we now highlight assignment to undeclared variables in orange.  This can be disabled with the new `js2-highlight-external-variables` Custom variable.  The face used is `js2-external-variable-face`.
+
+  * assigning a function to a variable or property now colors that property with `js2-function-name-face` to indicate that it's a function name.
+
+  * a new Custom variable, `js2-missing-semi-one-line-override`, can be set to `t` to suppress missing-semicolon warnings in one-statement function bodies where the braces are on the same line, e.g. `function identity(x) {return x}`
+
+  * added in missing support for the e4x statement: `default xml namespace = <expr>`
+
+  * added support for experimental Rhino syntax, `new expr [ ( arglist ) ] [ initializer ]`, e.g. `new Object() {a: 1, b: 2}`, which uses an object-literal following a `new` expression to add extra properties to the constructed object.  This support is off by default, and can be enabled with new Custom variable `js2-allow-rhino-new-expr-initializer`
+
+  * invalid \uxxxx unicode code points (e.g. \u980b) in strings are now underlined as warnings
+
+New syntax errors reported:
+
+  * `continue` targeting a label that doesn't label a loop
+  * `TypeError` when a generator function returns a value
+  * `return` or `yield` outside a function
+  * trying to ++ or -- an invalid operand
+
+New strict-mode warnings reported:
+
+  * statement with no side effects
+  * using `return` and `return -value-` in same function.  Can be disabled with `js2-strict-inconsistent-return-warning` variable.
+
+Bug fixes:
+
+  * no longer pukes when strings include unicode escapes, e.g. `\u200e`
+  * bumped up `max-specpdl-size` to avoid error when parsing deeply nested functions
+  * fixed incorrect auto-indentation of auto-matched close-curly in top-level constructs
+  * bind Enter key in a way that also works in terminal sessions
+  * errors now take precedence over warnings in the same location
+  * let statements now give missing-semicolon warnings (like var/const)
+
+API fixes:
+
+  * fixed bug where parser was generating for-in loops instead of for-loops and vice-versa
+  * now differentiate between empty expressions and empty statements
+  * fixed ast generation for empty {} js expressions in e4x xml literals
+  * fixed position, length and operator-position for xml dot-query ast nodes
+
+
 =Release notes for April 3 2008, js2-20080403.el:=
 
 Features:
