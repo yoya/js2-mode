@@ -43,3 +43,9 @@ This mode does not have customizable indentation the way cc-engine modes do (e.g
 Instead, `js2-mode` uses an indentation guesser (based on Karl LandstrÃ¶m's "javascript.el" guesser), plus "bounce-indenting".  When you hit TAB the first time to indent a line, it indents to what it thinks is the most likely indentation point, and it computes a set of other possibilities.  If you hit TAB repeatedly, it cycles among these possibilities.
 
 There are obvious downsides to this approach, but hopefully over time the indentation support will improve.
+
+= Installing from source code =
+
+As an alternate way to install the mode, you can download the source files from the svn repository (from the Source tab above), put them in your load-path, and byte-compile each of them.  The mode runs without being byte-compiled in "developer mode" (i.e. from source), so be careful, since it's really really slow for large files.
+
+If you're using the svn sources, you can get the latest updates between official releases.
