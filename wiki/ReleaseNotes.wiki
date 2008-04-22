@@ -1,6 +1,51 @@
 #labels Featured
 Release notes for new versions, in reverse-chronological order (most recent first)
 
+=Release notes for April 19 2008, js2-20080419.el:=
+
+New features:
+
+  * js2-mode now recognizes many more function declaration contexts for imenu.
+
+  * Issue #4:  added new option, `js2-allow-keywords-as-property-names`, to enable Mozilla users to use keywords as property names, e.g. `foo.return = 42` or `var x = {while: true}`.  By default this option is disabled, since IE and Rhino (and Ecma-262) don't allow it.
+
+  * Issue #32:  added new option, `js2-instanceof-has-side-effects`, for folks using xulrunner
+
+  * with a prefix arg, match-curly will now not add any whitespace between the curlies.  I.e. if you type `C-u {` it will insert {} and leave the cursor between them.
+
+  * added a force-refresh option to the JavaScript menu, for the hopefully rare cases when the mode needs to reset everything from scratch
+
+  * mode now reports undeclared variables in member expressions on the left side of an assignment.  For instance, if you write "foo.bar.baz = 6", then if foo isn't a declared variable it gets highlighted in orange.  To help avoid complaining about "undeclared" Ecma or Browser built-ins such as Array, Form or HTMLElement, we don't report unknown variables with capitalized names.
+
+  * Issue #33:  the `beginning-of-defun` and `end-of-defun` commands now invoke js2-mode equivalents, resulting in hopefully more reasonable behavior.
+
+  * added a new command key, `C-c C-o`, for showing/hiding the current comment or function
+
+  * Issue #48:  command to toggle syntax error reporting:  added menu option and new command-key, 'C-c C-w', to toggle the display of warnings and errors
+
+Bug fixes:
+
+  * fixed a whole class of problems created by regexp literals containing quotes, brackets, braces and parens
+  * fixed unreported bug where warning/error faces weren't overriding normal fontification face in some cases
+  * Issue #8:  bug in parsing an unescaped '/' in a regexp character class
+  * Issue #17:  /**/foo/**/ being parsed as a single block comment
+  * Issue #24:  mode doesn't highlight anything for certain malformed input
+  * Issue #25:  inserting escaped quote ignores existing escape char at point
+  * Issue #26:  can't insert escaped quote just before end of terminated string
+  * Issue #27:  Improper flagging of inconsistent return usage
+  * Issue #29:  spurious no-side-effects warning on the "debugger" keyword
+  * Issue #34:  Unexpected behavior with js2-mode-find-tag
+  * Issue #35:  need to define a local js2-mode-abbrev-table
+  * Issue #37:  typing # will crash Emacs
+  * Issue #38:  chokes on non-ASCII characters in identifiers
+  * Issue #40:  warning on byte-compile
+  * Issue #42:  hide-comments should hide //-comments
+  * Issue #47:  namespace cleanliness nit
+
+Behavior changes:
+
+  * changed close-curly to use the magic-close-paren function, so that typing C-u {} does the right thing.
+
 =Release notes for April 13 2008, js2-20080413.el:=
 
 Major change:  font-locking now uses the default faces, by popular demand
