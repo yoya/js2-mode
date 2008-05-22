@@ -35,6 +35,8 @@ API changes:
   * fixed various problems with computing node bounds
   * fixed problem where //-comments were added twice each to the AST
 
+The svn repository has been updated with all the changes.
+
 
 =Release notes for April 19 2008, js2-20080419.el:=
 
