@@ -1,6 +1,40 @@
 #labels Featured
 Release notes for new versions, in reverse-chronological order (most recent first)
 
+=Release notes for May 21, 2008, js2-20080521.el:=
+
+New features:
+
+  * report error on multiple var-decls in for-in loop, e.g. for (var x, y in foo)
+
+Bug fixes:
+
+  * fixed unreported bug where accumulator variables weren't being reset
+    causing unlimited expansion in memory usage (and gradual slowdown) while editing
+
+  * Issue #63:  jsdoc highlighting was broken
+  * Issue #71:  bogus "no side effects" warning
+  * fixed unreported bug where js2-next-error still stopped at suppressed warnings 
+  * highlight 'each' keyword in =for each (foo in bar)= loops
+  * fixed "no side effects" warning in ||/&&-expressions where a child has side effects
+
+Behavior changes:
+
+  * don't do quote-matching inside comments, as it rarely works right
+
+  * fixed js2-missing-semi-one-line-override to work for arbitrary function bodies.
+    It previously only worked if the function body was a simple statement like "return blah".
+    Now the warning is suppressed for any function body whose open and close curlies
+    are on the same line.
+
+  * improved heuristic for closing jsdoc comments w/ Enter key
+
+API changes:
+
+  * fixed various problems with computing node bounds
+  * fixed problem where //-comments were added twice each to the AST
+
+
 =Release notes for April 19 2008, js2-20080419.el:=
 
 New features:
