@@ -14,6 +14,7 @@ Bug fixes:
 
   * Issue #63:  jsdoc highlighting was broken
   * Issue #71:  bogus "no side effects" warning
+  * Issue #62:  paren blinking doesn't work
   * fixed unreported bug where js2-next-error still stopped at suppressed warnings 
   * highlight 'each' keyword in =for each (foo in bar)= loops
   * fixed "no side effects" warning in ||/&&-expressions where a child has side effects
