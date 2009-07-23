@@ -1,12 +1,13 @@
 #labels Featured
 Release notes for new versions, in reverse-chronological order (most recent first)
 
-=Release notes for Jul 23, 2009, js2-20090723.el:=
+=Release notes for Jul 23, 2009, js2-20090723a.el:=
 
   * added support for JavaScript 1.8 function closures
     * set `js2-language-version` default to 180
   * changed `js2-auto-indent-flag` to `js2-auto-indent-p`
   * changed `js2-bounce-indent-flag` to `js2-bounce-indent-p`
+    * turned these flags off by default
   * added js2-externs.el with some predefined browser externs
   * added `js2-additional-externs` for user-defined externs
   * went back to using c-fill-paragraph
