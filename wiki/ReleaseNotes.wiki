@@ -1,6 +1,13 @@
 #labels Featured
 Release notes for new versions, in reverse-chronological order (most recent first)
 
+=Release notes for Jul 23, 2009, js2-20090723b.el:=
+
+  * fixed Issue 80 (parser confuses quotes in a regexp with a true string)
+  * fixed Issue 105 (mixed EOL confuse js2-mode)
+  * fixed Issue 87 (fontification of comments inconsistent with other modes)
+  * fixed Issue 100 (made "import" and "export" reserved words)
+
 =Release notes for Jul 23, 2009, js2-20090723a.el:=
 
   * added support for JavaScript 1.8 function closures
